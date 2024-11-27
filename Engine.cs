@@ -10,11 +10,11 @@ public class Engine
     
     public Engine()
     {
-        var windowOptions = WindowOptions.DefaultVulkan;
+        var windowOptions = WindowOptions.Default;
         windowOptions.Title = "ExodusEngine";
         windowOptions.Size = new Vector2D<int>(1600, 900);
 
-        _window = Window.CreateWindow(windowOptions);
+        _window = Window.Create(windowOptions);
     }
 
     private void Update(double delta)
@@ -24,11 +24,10 @@ public class Engine
 
     public void Run()
     {
-        _window.Update += Update;
         _window.Run();
     }
     
-    public IWindow Window
+    public IWindow SilkWindow
     {
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         get => _window;
